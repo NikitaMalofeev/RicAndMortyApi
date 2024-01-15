@@ -6,4 +6,5 @@ export type Character = {
     type: string;
     species: string;
     image: string;
+    location?: { name: string };
 };

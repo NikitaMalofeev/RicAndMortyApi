@@ -32,4 +32,4 @@ const Modal = ({
         </div>
     );
 };
-export default Modal;
+export { Modal };
