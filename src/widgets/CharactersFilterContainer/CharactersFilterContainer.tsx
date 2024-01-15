@@ -33,26 +33,11 @@ const CharactersFilterContainer: React.FC<CharactersFilterContainerProps> = ({
     }) => {
         const filteredResults = charactersList.filter(
             (character: Character) =>
-                (status === '' ||
-                    character.status
-                        .toLowerCase()
-                        .includes(status.toLowerCase())) &&
-                (gender === '' ||
-                    character.gender
-                        .toLowerCase()
-                        .includes(gender.toLowerCase())) &&
-                (name === '' ||
-                    character.name
-                        .toLowerCase()
-                        .includes(name.toLowerCase())) &&
-                (species === '' ||
-                    character.species
-                        .toLowerCase()
-                        .includes(species.toLowerCase())) &&
-                ((type === '' ||
-                    character.type
-                        .toLowerCase()
-                        .includes(type.toLowerCase())) as boolean) // явное приведение к boolean
+                (status === '' || character.status.includes(status)) &&
+                (gender === '' || character.gender.includes(gender)) &&
+                (name === '' || character.name.includes(name)) &&
+                (species === '' || character.species.includes(species)) &&
+                ((type === '' || character.type.includes(type)) as boolean)
         );
 
         setFilteredCharacters(filteredResults);

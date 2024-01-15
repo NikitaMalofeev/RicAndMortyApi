@@ -85,7 +85,7 @@ const CharactersFilter: React.FC<FilterProps> = ({ onFilterChange }) => {
 
     useEffect(() => {
         handleFilterChange();
-    }, [genderFilter, statusFilter]);
+    }, [genderFilter, statusFilter, nameFilter, speciesFilter, typeFilter]);
 
     return (
         <StyledFilterContainer>
