@@ -7,7 +7,6 @@ interface FilterProps {
         gender: string;
         name: string;
         species: string;
-        type: string;
     }) => void;
 }
 
@@ -55,7 +54,6 @@ const CharactersFilter: React.FC<FilterProps> = ({ onFilterChange }) => {
     const [genderFilter, setGenderFilter] = useState('');
     const [nameFilter, setNameFilter] = useState('');
     const [speciesFilter, setSpeciesFilter] = useState('');
-    const [typeFilter, setTypeFilter] = useState('');
 
     const handleFilterChange = () => {
         onFilterChange({
@@ -63,7 +61,6 @@ const CharactersFilter: React.FC<FilterProps> = ({ onFilterChange }) => {
             status: statusFilter,
             name: nameFilter,
             species: speciesFilter,
-            type: typeFilter,
         });
     };
 
@@ -72,39 +69,30 @@ const CharactersFilter: React.FC<FilterProps> = ({ onFilterChange }) => {
         setGenderFilter('');
         setNameFilter('');
         setSpeciesFilter('');
-        setTypeFilter('');
-    };
-
-    const handleStatusFilter = (status: string) => {
-        setStatusFilter(status);
-    };
-
-    const handleGenderFilter = (gender: string) => {
-        setGenderFilter(gender);
     };
 
     useEffect(() => {
         handleFilterChange();
-    }, [genderFilter, statusFilter, nameFilter, speciesFilter, typeFilter]);
+    }, [genderFilter, statusFilter, nameFilter, speciesFilter]);
 
     return (
         <StyledFilterContainer>
             <div>
                 <label>Gender:</label>
-                <StyledButton onClick={() => handleGenderFilter('Male')}>
+                <StyledButton onClick={() => setGenderFilter('Male')}>
                     Male
                 </StyledButton>
-                <StyledButton onClick={() => handleGenderFilter('Female')}>
+                <StyledButton onClick={() => setGenderFilter('Female')}>
                     Female
                 </StyledButton>
             </div>
 
             <div>
                 <label>Dead or Alive:</label>
-                <StyledButton onClick={() => handleStatusFilter('Alive')}>
+                <StyledButton onClick={() => setStatusFilter('Alive')}>
                     Alive
                 </StyledButton>
-                <StyledButton onClick={() => handleStatusFilter('Dead')}>
+                <StyledButton onClick={() => setStatusFilter('Dead')}>
                     Dead
                 </StyledButton>
             </div>
@@ -128,18 +116,6 @@ const CharactersFilter: React.FC<FilterProps> = ({ onFilterChange }) => {
                     value={speciesFilter}
                     onChange={(e) => {
                         setSpeciesFilter(e.target.value);
-                        handleFilterChange();
-                    }}
-                />
-            </div>
-
-            <div>
-                <label>Type:</label>
-                <StyledInput
-                    type="text"
-                    value={typeFilter}
-                    onChange={(e) => {
-                        setTypeFilter(e.target.value);
                         handleFilterChange();
                     }}
                 />

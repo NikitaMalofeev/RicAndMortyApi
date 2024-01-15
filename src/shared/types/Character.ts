@@ -3,7 +3,6 @@ export type Character = {
     name: string;
     status: string;
     gender: string;
-    type: string;
     species: string;
     image: string;
     location?: { name: string };

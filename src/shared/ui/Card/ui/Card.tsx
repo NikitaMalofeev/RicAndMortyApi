@@ -5,18 +5,10 @@ interface CardProps {
     name: string;
     status: string;
     gender: string;
-    type: string;
     onClick: () => void;
 }
 
-export const Card = ({
-    image,
-    name,
-    status,
-    gender,
-    type,
-    onClick,
-}: CardProps) => {
+export const Card = ({ image, name, status, gender, onClick }: CardProps) => {
     return (
         <Container onClick={onClick}>
             <Image
@@ -27,7 +19,6 @@ export const Card = ({
                 <Name>{name}</Name>
                 <Status>{status}</Status>
                 <Gender>{gender}</Gender>
-                {type && <Type>{type}</Type>}
             </Info>
         </Container>
     );

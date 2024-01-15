@@ -1,5 +1,3 @@
-// CharactersFilterContainer.tsx
-
 import React, { useState } from 'react';
 import useGetAllCharactersData from '../../features/CharactersList/api/useGetAllCharacters';
 import { CharactersFilter } from '../../features/CharactersFilter';
@@ -23,21 +21,18 @@ const CharactersFilterContainer: React.FC<CharactersFilterContainerProps> = ({
         gender,
         name,
         species,
-        type,
     }: {
         status: string;
         gender: string;
         name: string;
         species: string;
-        type: string;
     }) => {
         const filteredResults = charactersList.filter(
             (character: Character) =>
                 (status === '' || character.status.includes(status)) &&
                 (gender === '' || character.gender.includes(gender)) &&
                 (name === '' || character.name.includes(name)) &&
-                (species === '' || character.species.includes(species)) &&
-                ((type === '' || character.type.includes(type)) as boolean)
+                (species === '' || character.species.includes(species))
         );
 
         setFilteredCharacters(filteredResults);

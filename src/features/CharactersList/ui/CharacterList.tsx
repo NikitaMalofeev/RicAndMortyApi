@@ -32,7 +32,6 @@ const CharactersList = ({ characters }: ListProps) => {
                     name={character.name}
                     status={character.status}
                     gender={character.gender}
-                    type={character.type}
                     onClick={() => showModal(character)}
                 />
             ))}
@@ -51,7 +50,6 @@ const CharactersList = ({ characters }: ListProps) => {
                         <p>Status: {selectedCharacter.status}</p>
                         <p>Gender: {selectedCharacter.gender}</p>
                         <p>Species: {selectedCharacter.species}</p>
-                        <p>Type: {selectedCharacter.type}</p>
                         <p>Location: {selectedCharacter.location?.name}</p>
                     </CharacterDescription>
                 </Modal>
