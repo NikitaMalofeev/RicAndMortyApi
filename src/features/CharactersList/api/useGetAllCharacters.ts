@@ -1,13 +1,5 @@
 import { useState, useEffect } from 'react';
-
-interface Character {
-    id: number;
-    name: string;
-    status: string;
-    gender: string;
-    type: string;
-    image: string;
-}
+import { Character } from '../../../shared/types/Character';
 
 interface CharacterData {
     characters: Character[];

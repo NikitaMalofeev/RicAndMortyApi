@@ -1,61 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import { CharactersFilter } from '../../../features/CharactersFilter';
-import { CharactersList } from '../../../features/CharactersList';
-import useGetAllCharactersData from '../../../features/CharactersList/api/useGetAllCharacters';
+// PageCharacters.tsx
 
-interface Character {
-    id: number;
-    name: string;
-    status: string;
-    gender: string;
-    type: string;
-    image: string;
-}
+import React from 'react';
+import { CharactersList } from '../../../features/CharactersList';
+import { Character } from '../../../shared/types/Character';
+import CharactersFilterContainer from '../../../widgets/CharactersFilterContainer/CharactersFilterContainer';
 
 const PageCharacters: React.FC = () => {
-    const [filteredCharacters, setFilteredCharacters] = useState<Character[]>(
-        []
-    );
-    const { charactersList, loading } = useGetAllCharactersData();
-
-    const handleFilterChange = ({
-        status,
-        gender,
-    }: {
-        status: string;
-        gender: string;
-    }) => {
-        const filteredResults = charactersList.filter(
-            (character) =>
-                (status === '' ||
-                    character.status
-                        .toLowerCase()
-                        .includes(status.toLowerCase())) &&
-                (gender === '' ||
-                    character.gender
-                        .toLowerCase()
-                        .includes(gender.toLowerCase()))
-        );
-
-        setFilteredCharacters(filteredResults);
-    };
-
     return (
-        <div>
-            <CharactersFilter onFilterChange={handleFilterChange} />
-            {loading ? (
-                <div>Loading...</div>
-            ) : (
-                <CharactersList
-                    characters={
-                        filteredCharacters.length
-                            ? filteredCharacters
-                            : charactersList
-                    }
-                />
+        <CharactersFilterContainer>
+            {(filteredCharacters: Character[]) => (
+                <CharactersList characters={filteredCharacters} />
             )}
-        </div>
+        </CharactersFilterContainer>
     );
 };
 

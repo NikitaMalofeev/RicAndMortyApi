@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import useGetAllCharactersData from '../api/useGetAllCharacters';
 import { Card } from '../../../shared/ui/Card/ui/Card';
 import { Character } from '../../../shared/types/Character';
+import { Loader } from '../../../shared/ui/Loader/ui/Loader';
 
 interface ListProps {
     characters: Character[];
@@ -10,10 +11,6 @@ interface ListProps {
 
 const CharactersList = ({ characters }: ListProps) => {
     const { charactersList, loading } = useGetAllCharactersData();
-
-    if (loading) {
-        return <div>Loader...</div>;
-    }
 
     return (
         <Container>
@@ -25,6 +22,7 @@ const CharactersList = ({ characters }: ListProps) => {
                     status={character.status}
                     gender={character.gender}
                     type={character.type}
+                    onClick={showModal}
                 />
             ))}
         </Container>

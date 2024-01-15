@@ -6,11 +6,19 @@ interface CardProps {
     status: string;
     gender: string;
     type: string;
+    onClick: () => void;
 }
 
-export const Card = ({ image, name, status, gender, type }: CardProps) => {
+export const Card = ({
+    image,
+    name,
+    status,
+    gender,
+    type,
+    onClick,
+}: CardProps) => {
     return (
-        <Container>
+        <Container onClick={onClick}>
             <Image
                 src={image}
                 alt={name}
@@ -26,11 +34,14 @@ export const Card = ({ image, name, status, gender, type }: CardProps) => {
 };
 
 const Container = styled.div`
+    cursor: pointer;
     width: 200px;
     margin: 20px;
     border: 1px solid #ccc;
     border-radius: 8px;
     overflow: hidden;
+    background-color: #d9cafc;
+
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 `;
 
