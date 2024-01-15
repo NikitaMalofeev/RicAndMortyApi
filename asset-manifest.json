@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/RicAndMortyApi/static/css/main.41c79c61.css",
-    "main.js": "/RicAndMortyApi/static/js/main.33adb26a.js",
+    "main.js": "/RicAndMortyApi/static/js/main.0e327302.js",
     "index.html": "/RicAndMortyApi/index.html",
     "main.41c79c61.css.map": "/RicAndMortyApi/static/css/main.41c79c61.css.map",
-    "main.33adb26a.js.map": "/RicAndMortyApi/static/js/main.33adb26a.js.map"
+    "main.0e327302.js.map": "/RicAndMortyApi/static/js/main.0e327302.js.map"
   },
   "entrypoints": [
     "static/css/main.41c79c61.css",
-    "static/js/main.33adb26a.js"
+    "static/js/main.0e327302.js"
   ]
 }
